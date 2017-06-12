@@ -1,0 +1,21 @@
+version: 1.0.{build}
+image: Visual Studio 2017
+shallow_clone: true
+platform: Any CPU
+configuration: Release
+before_build:
+- cmd: nuget restore
+cache:
+  - packages -> **\packages.config
+build:
+  publish_wap: true
+  verbosity: minimal
+deploy:
+- provider: S3
+  access_key_id: AKIAICLKLZT3ZYS6KQPQ
+  secret_access_key:
+    secure: HbbMjf0hSbFBvQiEYP27SKtBfOZzZLYtS9cMzQFBbjabk4gLl/eRIQsQ7oPXPDqE
+  region: eu-west-1
+  bucket: eb-dotnet-spike
+  folder: builds
+  encrypt: false
