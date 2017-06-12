@@ -6,7 +6,7 @@ environment:
   AWS_SECRET_ACCESS_KEY:
     secure: HbbMjf0hSbFBvQiEYP27SKtBfOZzZLYtS9cMzQFBbjabk4gLl/eRIQsQ7oPXPDqE
   AWS_DEFAULT_REGION: eu-west-1
-  APPVEYOR_WAP_ARTIFACT_NAME: %APPVEYOR_PROJECT_NAME%_%APPVEYOR_BUILD_VERSION%.zip
+  APPVEYOR_WAP_ARTIFACT_NAME: test_file.zip
 platform: Any CPU
 configuration: Release
 before_build:
