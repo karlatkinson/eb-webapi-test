@@ -26,4 +26,4 @@ deploy:
   folder: builds
   encrypt: false
 after_deploy:
-- cmd: aws elasticbeanstalk create-application-version --application-name eb-dotnet-spike --version-label %APPVEYOR_BUILD_VERSION% --description eb-dotnet-spike-%APPVEYOR_BUILD_VERSION% --source-bundle S3Bucket="eb-dotnet-spike",S3Key="builds/APPVEYOR_PROJECT_NAME_%APPVEYOR_BUILD_VERSION%.zip"
+- cmd: aws elasticbeanstalk create-application-version --application-name eb-dotnet-spike --version-label %APPVEYOR_BUILD_VERSION% --description eb-dotnet-spike-%APPVEYOR_BUILD_VERSION% --source-bundle S3Bucket="eb-dotnet-spike",S3Key="builds/%APPVEYOR_PROJECT_NAME%_%APPVEYOR_BUILD_VERSION%.zip"
