@@ -1,6 +1,11 @@
 version: 1.0.{build}
 image: Visual Studio 2017
 shallow_clone: true
+environment:
+  AWS_ACCESS_KEY_ID: AKIAICLKLZT3ZYS6KQPQ
+  AWS_SECRET_ACCESS_KEY:
+    secure: HbbMjf0hSbFBvQiEYP27SKtBfOZzZLYtS9cMzQFBbjabk4gLl/eRIQsQ7oPXPDqE
+  AWS_DEFAULT_REGION: eu-west-1
 platform: Any CPU
 configuration: Release
 before_build:
