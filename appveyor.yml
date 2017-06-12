@@ -6,14 +6,14 @@ environment:
   AWS_SECRET_ACCESS_KEY:
     secure: HbbMjf0hSbFBvQiEYP27SKtBfOZzZLYtS9cMzQFBbjabk4gLl/eRIQsQ7oPXPDqE
   AWS_DEFAULT_REGION: eu-west-1
-  APPVEYOR_WAP_ARTIFACT_NAME: %APPVEYOR_PROJECT_NAME%_%APPVEYOR_BUILD_VERSION%.zip
+  APPVEYOR_WAP_ARTIFACT_NAME:
 platform: Any CPU
 configuration: Release
 before_build:
 - cmd: nuget restore
 build_script:
-  - msbuild Dummy.WebApi.sln /verbosity:minimal /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll" /t:Package /p:PackageLocation=%APPVEYOR_BUILD_FOLDER%\%APPVEYOR_WAP_ARTIFACT_NAME%
-  - appveyor PushArtifact %APPVEYOR_WAP_ARTIFACT_NAME% -Type WebDeployPackage
+  - msbuild Dummy.WebApi.sln /verbosity:minimal /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll" /t:Package /p:PackageLocation=%APPVEYOR_BUILD_FOLDER%\%APPVEYOR_PROJECT_NAME%_%APPVEYOR_BUILD_VERSION%.zip
+  - appveyor PushArtifact %APPVEYOR_PROJECT_NAME%_%APPVEYOR_BUILD_VERSION%.zip -Type WebDeployPackage
 cache:
   - packages -> **\packages.config
 build:
