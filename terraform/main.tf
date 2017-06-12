@@ -30,4 +30,10 @@ resource "aws_elastic_beanstalk_environment" "eb-dotnet-spike-dev" {
     name = "BatchSize"
     value = "33"
   }
+
+  setting {
+    namespace = "aws:autoscaling:launchconfiguration"
+    name = "IamInstanceProfile"
+    value = "aws-elasticbeanstalk-ec2-role"
+  }
 }
