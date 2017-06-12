@@ -36,4 +36,10 @@ resource "aws_elastic_beanstalk_environment" "eb-dotnet-spike-dev" {
     name = "IamInstanceProfile"
     value = "aws-elasticbeanstalk-ec2-role"
   }
+
+  setting {
+    namespace = "aws:elasticbeanstalk:application:environment"
+    name = "Environment"
+    value = "My really cool dev env"
+  }
 }
