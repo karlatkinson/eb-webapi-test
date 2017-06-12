@@ -8,12 +8,14 @@ namespace Dummy.WebApi.Controllers
     {
         public dynamic Get()
         {
+            var version = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version;
+
             return new
             {
                 Status = "Ok",
                 Environment = ConfigurationManager.AppSettings["Environment"],
                 Environment.MachineName,
-                Environment.Version
+                Version = $"{version.Major}.{version.Minor}.{version.Build}.{version.Revision}"
             };
         }
     }
