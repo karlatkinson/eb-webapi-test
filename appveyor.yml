@@ -6,7 +6,12 @@ environment:
   AWS_SECRET_ACCESS_KEY:
     secure: HbbMjf0hSbFBvQiEYP27SKtBfOZzZLYtS9cMzQFBbjabk4gLl/eRIQsQ7oPXPDqE
   AWS_DEFAULT_REGION: eu-west-1
-  APPVEYOR_WAP_ARTIFACT_NAME:
+assembly_info:
+  patch: true
+  file: AssemblyInfo.*
+  assembly_version: "{version}"
+  assembly_file_version: "{version}"
+  assembly_informational_version: "{version}"
 platform: Any CPU
 configuration: Release
 before_build:

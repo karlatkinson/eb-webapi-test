@@ -12,7 +12,8 @@ namespace Dummy.WebApi.Controllers
             {
                 Status = "Ok",
                 Environment = ConfigurationManager.AppSettings["Environment"],
-                Machine = Environment.MachineName
+                Environment.MachineName,
+                Environment.Version
             };
         }
     }
