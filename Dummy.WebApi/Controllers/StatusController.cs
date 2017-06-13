@@ -10,8 +10,6 @@ namespace Dummy.WebApi.Controllers
         {
             var version = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version;
 
-            return InternalServerError(new Exception("Oh no it went wrong"));
-
             return new
             {
                 Status = "Ok",
