@@ -26,7 +26,7 @@ function Wait-For-Environment-Status([string]$expectedHealth) {
 }
 
 Write-Host "Deploying version $Version to $EnvironmentName in region $Region"
-#Update-EBEnvironment -EnvironmentName $EnvironmentName -Region $Region -VersionLabel $Version
+Update-EBEnvironment -EnvironmentName $EnvironmentName -Region $Region -VersionLabel $Version
 
 Write-Host "Waiting for deployment to start..."
 Wait-For-Environment-Status("Updating")
