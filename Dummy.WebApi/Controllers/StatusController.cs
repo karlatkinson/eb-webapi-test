@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Configuration;
+using System.Net;
 using System.Web.Http;
 
 namespace Dummy.WebApi.Controllers
@@ -15,7 +16,8 @@ namespace Dummy.WebApi.Controllers
                 Status = "Ok",
                 Environment = ConfigurationManager.AppSettings["Environment"],
                 Environment.MachineName,
-                Version = $"{version.Major}.{version.Minor}.{version.Build}.{version.Revision}"
+                Version = $"{version.Major}.{version.Minor}.{version.Build}.{version.Revision}",
+                Hostname = Dns.GetHostName()
             };
         }
     }
