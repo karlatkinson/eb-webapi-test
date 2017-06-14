@@ -10,6 +10,8 @@ namespace Dummy.WebApi.Controllers
     {
         public dynamic Get()
         {
+            return InternalServerError(new Exception("dead john"));
+
             var version = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version;
             var localIPs = Dns.GetHostAddresses(Dns.GetHostName()).Select(x=>x.ToString());
             return new
