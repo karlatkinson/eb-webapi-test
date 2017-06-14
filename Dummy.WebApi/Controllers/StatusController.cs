@@ -19,7 +19,8 @@ namespace Dummy.WebApi.Controllers
                 Environment.MachineName,
                 Version = $"{version.Major}.{version.Minor}.{version.Build}.{version.Revision}",
                 Hostname = Dns.GetHostName(),
-                IpAddresses = localIPs
+                IpAddresses = localIPs,
+                Demo = "Hello"
             };
         }
     }
