@@ -11,6 +11,7 @@ resource "aws_elastic_beanstalk_environment" "eb-dotnet-spike-dev" {
   name                = "eb-dotnet-spike-dev"
   application         = "${aws_elastic_beanstalk_application.eb-dotnet-spike.name}"
   solution_stack_name = "64bit Windows Server 2012 R2 v1.2.0 running IIS 8.5"
+  tier                = "WebServer"
 
   setting {
     namespace = "aws:elasticbeanstalk:application"
