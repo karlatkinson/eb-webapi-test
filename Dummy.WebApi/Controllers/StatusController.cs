@@ -12,6 +12,7 @@ namespace Dummy.WebApi.Controllers
         {
             var version = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version;
             var localIPs = Dns.GetHostAddresses(Dns.GetHostName()).Select(x=>x.ToString());
+            
             return new
             {
                 Status = "Ok",
