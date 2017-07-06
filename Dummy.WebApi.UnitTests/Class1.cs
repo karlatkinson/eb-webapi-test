@@ -13,7 +13,7 @@ namespace Dummy.WebApi.UnitTests
         [Test]
         public void Testy()
         {
-            Assert.Fail("test fail");
+            Assert.Pass("test pass");
         }
     }
 }
