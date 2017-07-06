@@ -1,5 +1,6 @@
 provider "aws" {
-  region = "eu-west-1"
+  region = "eu-west-1",
+  profile = "karl"
 }
 
 resource "aws_elastic_beanstalk_application" "eb-dotnet-spike" {
@@ -47,6 +48,12 @@ resource "aws_elastic_beanstalk_environment" "eb-dotnet-spike-dev" {
     namespace = "aws:autoscaling:updatepolicy:rollingupdate"
     name      = "RollingUpdateEnabled"
     value     = "true"
+  }
+
+  setting {
+    namespace = "aws:autoscaling:launchconfiguration"
+    name      = "EC2KeyName"
+    value     = "zuto-dev"
   }
 
   setting {

@@ -16,9 +16,9 @@ platform: Any CPU
 configuration: Release
 before_build:
 - cmd: nuget restore
-build_script:
-  - msbuild Dummy.WebApi.sln /verbosity:minimal /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll" /t:Package /p:PackageLocation=%APPVEYOR_BUILD_FOLDER%\%APPVEYOR_PROJECT_NAME%_%APPVEYOR_BUILD_VERSION%.zip
-  - appveyor PushArtifact %APPVEYOR_PROJECT_NAME%_%APPVEYOR_BUILD_VERSION%.zip -Type WebDeployPackage
+#build_script:
+  #- msbuild Dummy.WebApi.sln /verbosity:minimal /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll" /t:Package /p:PackageLocation=%APPVEYOR_BUILD_FOLDER%\%APPVEYOR_PROJECT_NAME%_%APPVEYOR_BUILD_VERSION%.zip
+  #- appveyor PushArtifact %APPVEYOR_PROJECT_NAME%_%APPVEYOR_BUILD_VERSION%.zip -Type WebDeployPackage
 cache:
   - packages -> **\packages.config
 build:
@@ -34,5 +34,5 @@ deploy:
   folder: builds
   encrypt: false
 after_deploy:
-- cmd: aws elasticbeanstalk create-application-version --application-name eb-dotnet-spike --version-label %APPVEYOR_BUILD_VERSION% --description eb-dotnet-spike-%APPVEYOR_BUILD_VERSION% --source-bundle S3Bucket="eb-dotnet-spike",S3Key="builds/%APPVEYOR_PROJECT_NAME%_%APPVEYOR_BUILD_VERSION%.zip"
-- ps: ./deploy.ps1 eb-dotnet-spike-dev $ENV:AWS_DEFAULT_REGION $ENV:APPVEYOR_BUILD_VERSION
+#- cmd: aws elasticbeanstalk create-application-version --application-name eb-dotnet-spike --version-label %APPVEYOR_BUILD_VERSION% --description eb-dotnet-spike-%APPVEYOR_BUILD_VERSION% --source-bundle S3Bucket="eb-dotnet-spike",S3Key="builds/%APPVEYOR_PROJECT_NAME%_%APPVEYOR_BUILD_VERSION%.zip"
+#- ps: ./deploy.ps1 eb-dotnet-spike-dev $ENV:AWS_DEFAULT_REGION $ENV:APPVEYOR_BUILD_VERSION
